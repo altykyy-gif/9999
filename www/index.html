@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1" />
+  <title>لوحة تحكم راوتر Huawei HiLink</title>
+  <meta name="description" content="لوحة تحكم احترافية غير رسمية لراوترات Huawei HiLink" />
+
+  <!-- PWA -->
+  <link rel="manifest" href="./manifest.json" />
+  <meta name="theme-color" content="#0a0e13" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#f2f5f6" media="(prefers-color-scheme: light)" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="لوحة الراوتر" />
+  <link rel="apple-touch-icon" href="./icons/icon-192.png" />
+  <link rel="icon" href="./icons/icon-192.png" type="image/png" />
+
+  <link rel="stylesheet" href="./style.css" />
+
+  <!-- يمنع "الوميض" بثيم خاطئ قبل تحميل JS: نطبّق الثيم المحفوظ فورًا -->
+  <script>
+    (function () {
+      try {
+        var raw = localStorage.getItem('hlk.theme');
+        var theme = raw ? JSON.parse(raw) : 'system';
+        if (theme === 'system' || !theme) {
+          theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        }
+        document.documentElement.setAttribute('data-theme', theme);
+      } catch (e) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    })();
+  </script>
+</head>
+<body>
+  <div id="app-root">
+    <div class="boot-loader" aria-hidden="true">
+      <div class="boot-spinner"></div>
+    </div>
+  </div>
+
+  <noscript>
+    هذا التطبيق يتطلب تفعيل JavaScript للعمل.
+  </noscript>
+
+  <style>
+    .boot-loader {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .boot-spinner {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      border: 3px solid rgba(22, 217, 196, 0.2);
+      border-top-color: #16d9c4;
+      animation: boot-spin 0.8s linear infinite;
+    }
+    @keyframes boot-spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
