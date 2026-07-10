@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  الراوتر يقدّم واجهته عبر HTTP عادي (بلا شهادة TLS)، وأندرويد يمنع
+  حركة HTTP الصريحة افتراضيًا منذ API 28. هذا التطبيق لا يتصل إلا
+  بجهاز الراوتر الذي يحدده المستخدم بنفسه (لا يوجد تصفح ويب عام هنا)،
+  لذا السماح بـ HTTP هنا آمن ومحدود الأثر ضمن هذا السياق تحديدًا.
+
+  إن كنت تعرف عنوان راوترك بالضبط ولن يتغيّر، يمكنك تضييق النطاق بإزالة
+  base-config أدناه واستبداله بـ:
+    <domain-config cleartextTrafficPermitted="true">
+      <domain includeSubdomains="false">192.168.1.1</domain>
+    </domain-config>
+-->
+<network-security-config>
+    <base-config cleartextTrafficPermitted="true">
+        <trust-anchors>
+            <certificates src="system" />
+        </trust-anchors>
+    </base-config>
+</network-security-config>

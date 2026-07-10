@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">لوحة تحكم الراوتر</string>
+    <string name="title_activity_main">لوحة تحكم الراوتر</string>
+    <string name="package_name">com.hilink.dashboard</string>
+    <string name="custom_url_scheme">com.hilink.dashboard</string>
+</resources>

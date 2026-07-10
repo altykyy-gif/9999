@@ -1,0 +1,22 @@
+{
+  "appId": "com.hilink.dashboard",
+  "appName": "لوحة تحكم الراوتر",
+  "webDir": "www",
+  "backgroundColor": "#0a0e13",
+  "plugins": {
+    "CapacitorHttp": {
+      "enabled": true
+    },
+    "CapacitorCookies": {
+      "enabled": true
+    },
+    "SplashScreen": {
+      "launchShowDuration": 400,
+      "backgroundColor": "#0a0e13",
+      "showSpinner": false
+    }
+  },
+  "android": {
+    "allowMixedContent": false
+  }
+}
